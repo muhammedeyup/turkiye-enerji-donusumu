@@ -14,6 +14,6 @@ Bu dönüşümün önümüzdeki yıllarda nasıl ilerleyeceğini sizce hangi ver
 Projeyi Python/Pandas ile temizleyip Chart.js, Scrollama.js ve responsive mimariyle kodladım.
 
 🔗 İnteraktif Veri Hikâyesini İnceleyin:
-https://eyupcatan.dev/veri-hikayesi.html
+https://eyupcatan1.netlify.app/veri-hikayesi.html
 
 #VeriAnalitiği #DataStorytelling #YenilenebilirEnerji #OurWorldInData #Python
