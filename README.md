@@ -67,4 +67,4 @@ Google Antigravity kod altyapısı, grafik entegrasyonu ve duyarlı CSS gelişti
 
 ## Lighthouse
 
-Yerel üretim derlemesinde mobil Lighthouse Performans sonucu ana sayfada 99, hikâye sayfasında 100 ölçülmüştür. Bu ölçümler canlı dağıtım sonucu değildir; güncel dosyalar yayımlandıktan sonra canlı URL yeniden denetlenmelidir.
+Yerel üretim derlemesinde mobil Lighthouse Performans sonucu ana sayfada 98, hikâye sayfasında 80 ölçülmüştür. Bu ölçümler canlı dağıtım sonucu değildir; güncel dosyalar yayımlandıktan sonra canlı URL yeniden denetlenmelidir.
