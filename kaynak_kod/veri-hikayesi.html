@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Başlık -->
+  <title>Rüzgâr ve Güneşin Yükselişi: Türkiye'nin Elektrik Üretiminde Enerji Dönüşümü | Muhammet Eyüp Çatan</title>
+  <meta name="description" content="Our World in Data (1965-2025) verileriyle Türkiye'nin elektrik üretiminde kömür, doğalgaz, hidroelektrik, rüzgâr ve güneş enerjisinin 60 yıllık dönüşümü ve dünya ülkeleriyle karşılaştırması.">
+  <meta name="author" content="Muhammet Eyüp Çatan">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Open Graph Meta Etiketleri (LinkedIn, X ve Sosyal Paylaşım - 1200x627 px) -->
+  <meta property="og:title" content="Rüzgâr ve Güneşin Yükselişi: Türkiye'nin Elektrik Üretiminde Enerji Dönüşümü">
+  <meta property="og:description" content="Our World in Data (1965–2025) verileriyle Türkiye'nin elektrik üretiminde kömür, doğalgaz, hidroelektrik, rüzgâr ve güneş enerjisinin 60 yıllık dönüşüm hikâyesi ve küresel karşılaştırması.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+
+  <!-- Favicon (Portfolyo ile Birebir Uyumlu Monogram) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050505'/><path d='M20 75 V25 L50 55 L80 25 V75' stroke='%2354D6FF' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+
+  <!-- Google Fonts: Space Grotesk ve JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Kütüphaneler: Chart.js 4.4, Chart.js Annotation Plugin & Scrollama.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js" defer></script>
+  <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js" defer></script>
+
+  <!-- Portfolyo ile %100 Uyumlu Stil Dosyası -->
+  <link rel="stylesheet" href="veri-style.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       ÜST NAVİGASYON (HEADER & NAV)
+       ==================================================================== -->
+  <nav class="top-navbar" aria-label="Ana Gezinme Çubuğu">
+    <div class="nav-container">
+      <a href="index.html" class="nav-back-button" aria-label="Portfolyo ana sayfasına dön">
+        <span class="back-arrow" aria-hidden="true">←</span>
+        <span>Portfolyoma Dön</span>
+      </a>
+
+      <!-- Bölüm İçi Hızlı Geçiş Linkleri -->
+      <ul class="nav-menu" role="menubar">
+        <li role="none"><a href="#context" class="nav-link" role="menuitem">Bağlam</a></li>
+        <li role="none"><a href="#scrolly" class="nav-link" role="menuitem">Veri Hikâyesi</a></li>
+        <li role="none"><a href="#exploration" class="nav-link" role="menuitem">İnteraktif Keşif</a></li>
+        <li role="none"><a href="#conclusion" class="nav-link" role="menuitem">Sonuç</a></li>
+        <li role="none"><a href="#methodology" class="nav-link" role="menuitem">Yöntem</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====================================================================
+       BÖLÜM 1: AÇILIŞ (HERO) - BULGU CÜMLESİ BAŞLIĞI
+       ==================================================================== -->
+  <header id="hero" class="hero-section">
+    <div class="hero-wrapper">
+      <div class="hero-tag">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>SCROLLYTELLING // VERİ GAZETECİLİĞİ</span>
+      </div>
+
+      <!-- Bulgu Cümlesi Başlığı -->
+      <h1 class="hero-title">
+        Rüzgâr ve Güneş Yükseliyor, Ancak Türkiye'nin Elektrik Üretimini Hâlâ Fosil Yakıtlar Sırtlıyor
+      </h1>
+
+      <p class="hero-subtitle">
+        Çalışma Sorusu: Türkiye'nin elektrik üretiminde rüzgâr ve güneş hızla büyürken, şebekenin kömür ve doğal gaza olan bağımlılığı gerçekten azaldı mı? (Our World in Data 1965 – 2025 Doğrulanmış Serisi)
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-author">Muhammet Eyüp Çatan</span>
+        <span class="meta-sep" aria-hidden="true">•</span>
+        <span class="meta-program">Büyük Veri Analistliği</span>
+        <span class="meta-sep" aria-hidden="true">•</span>
+        <time datetime="2026-10" class="meta-date">Ekim 2026</time>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span class="scroll-label">Hikâyeyi keşfetmek için aşağı kaydırın</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         BÖLÜM 2: BAĞLAM (CONTEXT) - ÖNEM, TALEP VE TERİM AÇIKLAMALARI
+         ==================================================================== -->
+    <section id="context" class="content-section" aria-labelledby="context-heading">
+      <div class="container-prose">
+        <div class="section-badge">BÖLÜM 01 // BAĞLAM</div>
+        <h2 id="context-heading" class="section-title">
+          Hızla Sanayileşen Bir Ülkenin 60 Yıllık Enerji Arayışı
+        </h2>
+
+        <p class="prose-p">
+          1965 yılında Türkiye'nin yıllık toplam elektrik üretimi 4,4 TWh seviyesindeydi (hidroelektrik 2,2 TWh). Bu üretim 2025'te 353,9 TWh'e çıktı; seçilmiş beş kaynağın üretim toplamı 333,7 TWh oldu. Bu uzun dönemli değişim, elektrik üretim karmasının kömür ve hidroelektrikten doğal gaz, rüzgâr ve güneşe doğru çeşitlendiğini gösteriyor. Bu veri seti elektrik talebini ölçmediği için üretim artışının talep kaynaklı olduğunu tek başına kanıtlamaz.
+        </p>
+
+        <p class="prose-p">
+          Our World in Data (Ember ve Energy Institute) elektrik karması verilerini temel alan bu interaktif çalışma, Türkiye'nin 1965–2025 dönemindeki 60 yıllık enerji serüvenini incelemektedir. Aşağıdaki kaydırmalı anlatıda, şebekeyi kökten değiştiren kırılma anlarını adım adım deneyimleyecek; ardından yer alan etkileşimli panelde Türkiye'nin dönüşümünü Almanya, Çin ve ABD gibi küresel aktörlerle doğrudan karşılaştırabileceksiniz.
+        </p>
+
+        <!-- Teknik Terim Bilgi Kutusu -->
+        <aside class="info-callout" role="note" aria-label="Teknik Terim Açıklaması">
+          <div class="callout-icon" aria-hidden="true">ℹ</div>
+          <div class="callout-body">
+            <strong>Teravatsaat (TWh):</strong> Bir trilyon (10<sup>12</sup>) vatsaatlik enerji üretim ve tüketim birimidir (1 TWh = 1.000.000.000 kWh). Örnek vermek gerekirse, 1 TWh elektrik enerjisi yaklaşık 350 bin hanenin tüm yıllık elektrik ihtiyacını karşılayacak büyüklüktedir.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BÖLÜM 3: BULGU ADIMLARI / SCROLLYTELLING (6 ADIMLI HİKÂYE)
+         ==================================================================== -->
+    <section id="scrolly" class="scrolly-section" aria-labelledby="scrolly-heading">
+      <h2 id="scrolly-heading" class="sr-only">60 Yıllık Dönüşümün 6 Kritik Aşaması</h2>
+
+      <div class="scrolly-container">
+        
+        <!-- Yapışkan Grafik Kartı (Figure & Figcaption) -->
+        <figure class="scrolly-figure">
+          <div class="chart-card">
+            <div class="chart-top-bar">
+              <div class="chart-heading-group">
+                <span class="chart-indicator-dot" aria-hidden="true"></span>
+                <span id="scrollyChartTitle" class="chart-main-title">
+                  Türkiye Elektrik Üretiminde Kaynaklar (1965–1985)
+                </span>
+              </div>
+              <span id="scrollyStepBadge" class="chart-step-badge">Adım 1 / 6</span>
+            </div>
+
+            <!-- 1. Görselleştirme: Zaman Serisi Çizgi / Alan Grafiği -->
+            <div class="chart-canvas-container">
+              <canvas id="scrollyChart" aria-label="1965-2025 Türkiye elektrik üretimi kaynak dönüşümü çizgi ve alan grafiği" role="img"></canvas>
+            </div>
+
+            <figcaption id="scrollyFigcaption" class="chart-caption">
+              Kaynak: Our World in Data (Ember &amp; Energy Institute) • Birim: Teravatsaat (TWh).
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- Kayan Metin Kartları (Article - 6 Adım) -->
+        <article class="scrolly-article" aria-live="polite">
+          
+          <!-- Adım 1 -->
+          <div class="step is-active" data-step="1">
+            <span class="step-num">ADIM 01 // 1965 – 1985</span>
+            <h3 class="step-title">Barajların ve Kömürün İlk Yılları</h3>
+            <p class="step-desc">
+              1984'e kadar kömür ve doğalgaz verisi uluslararası serilerde ayrı raporlanmazken hidroelektrik üretimi arttı. 1985'te kömür (15,0 TWh) ve hidroelektrik (12,0 TWh), seçilmiş beş kaynağın toplamı içinde birbirine yakın paylara sahipti.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">1985’te seçilmiş beş kaynak içindeki pay:</span>
+              <span class="metric-val">Kömür %55,4 (15,0 TWh) • Hidroelektrik %44,4 (12,0 TWh)</span>
+            </div>
+          </div>
+
+          <!-- Adım 2 -->
+          <div class="step" data-step="2">
+            <span class="step-num">ADIM 02 // 1985 – 2000</span>
+            <h3 class="step-title">Doğalgaz Devrimi Şebekeyi Kökten Değiştiriyor</h3>
+            <p class="step-desc">
+              1985'te yalnızca 0,06 TWh olan doğalgaz üretimi, 1990 sonrasında devreye giren kombine çevrim santralleriyle patlama yaptı. 2000 yılında 46,5 TWh'e ulaşarak kömürü (38,2 TWh) geride bıraktı ve %40,2 payla birinci sıraya yerleşti.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">2000 Doğalgaz Payı:</span>
+              <span class="metric-val">46,5 TWh (5 Ana Kaynak İçinde %40,2 Pay)</span>
+            </div>
+          </div>
+
+          <!-- Adım 3 -->
+          <div class="step" data-step="3">
+            <span class="step-num">ADIM 03 // 2000 – 2014</span>
+            <h3 class="step-title">Fosil Üretim 2014’te Zirveye Ulaştı</h3>
+            <p class="step-desc">
+              2014'te toplam elektrik üretimi 250 TWh'e yaklaştı. Kömür ve doğal gaz üretimi toplam 196,8 TWh oldu; bu, seçilmiş beş kaynak içinde fosil üretimin en yüksek payıydı (%80,0). Veri tek başına bu artışın nedenini göstermez.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">2014 Fosil Toplamı:</span>
+              <span class="metric-val">196,8 TWh (5 Ana Kaynakta %80,0 Fosil Zirvesi)</span>
+            </div>
+          </div>
+
+          <!-- Adım 4 -->
+          <div class="step" data-step="4">
+            <span class="step-num">ADIM 04 // 2006 – 2020</span>
+            <h3 class="step-title">Rüzgâr Enerjisi Sahneye Çıkıyor</h3>
+            <p class="step-desc">
+              Rüzgâr üretimi 2008'de 0,85 TWh iken 2020'de 24,6 TWh'e çıktı; 12 yılda yaklaşık 29 kat arttı. Bu dönem yenilenebilir enerji desteklerinin yürürlüğe girdiği yıllarla örtüşür, ancak veri tek başına artışın nedenini kanıtlamaz.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">Rüzgâr Büyümesi (2008-2020):</span>
+              <span class="metric-val">0,85 TWh → 24,6 TWh (12 Yılda 29 Kat Artış)</span>
+            </div>
+          </div>
+
+          <!-- Adım 5 -->
+          <div class="step" data-step="5">
+            <span class="step-num">ADIM 05 // 2014 – 2025</span>
+            <h3 class="step-title">2014 Sonrası Güneş Enerjisinde Dikey Patlama</h3>
+            <p class="step-desc">
+              Güneş üretimi 2014'te 0,02 TWh iken 2025'te 37,3 TWh'e çıktı; rüzgâr üretimi de 39,4 TWh oldu. Bu veriler büyümeyi gösterir, ancak tek başına hangi teşviklerin ne ölçüde etkili olduğunu belirlemez.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">Güneş Büyümesi (2014-2025):</span>
+              <span class="metric-val">0,02 TWh → 37,3 TWh (10 Yılda Dikey Yükseliş)</span>
+            </div>
+          </div>
+
+          <!-- Adım 6 -->
+          <div class="step" data-step="6">
+            <span class="step-num">ADIM 06 // BÜYÜK RESİM (2025)</span>
+            <h3 class="step-title">Büyük Resim: Fosil Yakıtlar vs. Yenilenebilir Enerji</h3>
+            <p class="step-desc">
+              2025'te kömür, doğal gaz, hidroelektrik, rüzgâr ve güneş üretimi toplam 333,7 TWh oldu. Bu beş kaynak içinde fosil üretim 199,8 TWh (%59,9), hidro+rüzgâr+güneş ise 133,9 TWh (%40,1) pay aldı. Bu oranlar toplam elektrik üretiminin değil, seçilmiş beş kaynağın içindeki paylardır. Rüzgâr ve güneş toplamı (76,7 TWh), hidroelektriği (57,3 TWh) geçti.
+            </p>
+            <div class="step-metric">
+              <span class="metric-key">2025 Dengesi:</span>
+              <span class="metric-val">Fosil: 199,8 TWh (%59,9) • Hidro+rüzgâr+güneş: 133,9 TWh (%40,1)</span>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BÖLÜM 4: EK GÖRSELLEŞTİRMELER VE OKUYUCU KEŞFİ (4 FARKLI GRAFİK TÜRÜ)
+         ==================================================================== -->
+    <section id="exploration" class="content-section" aria-labelledby="exploration-heading">
+      <div class="container-wide">
+        <div class="section-badge">BÖLÜM 02 // İNTERAKTİF KEŞİF</div>
+        <h2 id="exploration-heading" class="section-title">
+          Derinlemesine Analiz ve Küresel Karşılaştırma Paneli
+        </h2>
+        <p class="section-lead">
+          Aşağıdaki görselleştirmeler; Türkiye'nin kaynak dağılımını, 1990–2025 fosil-yenilenebilir yapısal evrimini, 2025 güncel parça-bütün oranını ve seçtiğiniz dünya ülkeleriyle 60 yıllık performans kıyaslamasını sunar.
+        </p>
+
+        <!-- Grid 1: Yatay Çubuk Grafik, Yığılmış Çubuk ve Halka Grafik -->
+        <div class="charts-three-col-grid">
+          
+          <!-- 2. Görselleştirme: Sıralanmış Yatay Çubuk Grafik (Horizontal Bar Chart) -->
+          <article class="card-panel">
+            <div class="card-header">
+              <div>
+                <span class="card-tag">GÖRSELLEŞTİRME 02 // YATAY ÇUBUK GRAFİK</span>
+                <h3 class="card-title">Beş kaynak içinde Türkiye’nin rüzgâr ve güneş payı %19,4’e ulaştı</h3>
+              </div>
+              <span class="unit-badge">% Pay (5 Kaynak İçi)</span>
+            </div>
+            
+            <figure class="chart-figure">
+            <div class="mini-chart-container ranked-bars-container">
+              <canvas id="chartRankedBars" aria-label="2024 yılı rüzgâr ve güneş payı ülke karşılaştırması sıralı çubuk grafiği" role="img"></canvas>
+            </div>
+            <figcaption class="chart-caption">
+              Türkiye, 2024'te seçilmiş beş kaynağın üretim toplamı içinde rüzgâr ve güneşte %19,4 paya ulaştı. Dünya ortalaması %17,6'ydı. Kaynak: Our World in Data (Ember ve Energy Institute); payda: kömür, doğal gaz, hidroelektrik, rüzgâr ve güneş.
+            </figcaption>
+            </figure>
+          </article>
+
+          <!-- 3. Görselleştirme: Yığılmış Çubuk Grafik (Stacked Bar Chart - Fosil vs Temiz) -->
+          <article class="card-panel">
+            <div class="card-header">
+              <div>
+                <span class="card-tag">GÖRSELLEŞTİRME 03 // YIĞILMIŞ ÇUBUK GRAFİK</span>
+                <h3 class="card-title">Beş kaynak içindeki fosil payı 2010’daki %74,1’den 2025’te %59,9’a indi</h3>
+              </div>
+              <span class="unit-badge">1990 • 2000 • 2010 • 2025</span>
+            </div>
+
+            <figure class="chart-figure">
+            <div class="mini-chart-container">
+              <canvas id="chartStackedBars" aria-label="Fosil yakıtlar ile yenilenebilir enerji üretiminin yıllara göre yığılmış çubuk grafiği" role="img"></canvas>
+            </div>
+            <figcaption class="chart-caption">
+              Beş kaynak içindeki fosil üretim payı 1990'da %56,8, 2000'de %73,3 ve 2010'da %74,1 iken 2025'te %59,9 oldu. Kaynak: Our World in Data (Ember ve Energy Institute); birim: seçilmiş beş kaynağın yüzdesi. Bu seri değişimi neden-sonuç ilişkisini tek başına göstermez.
+            </figcaption>
+            </figure>
+          </article>
+
+          <!-- 4. Grafik Türü: 2025 Parça-Bütün Halka Grafiği (Doughnut Chart) -->
+          <article class="card-panel">
+            <div class="card-header">
+              <div>
+                <span class="card-tag">GÖRSELLEŞTİRME 04 // HALKA GRAFİK (DOUGHNUT)</span>
+                <h3 class="card-title">2025’te seçilmiş beş kaynağın %59,9’u fosil üretimdi</h3>
+              </div>
+              <span class="unit-badge">2025 Güncel Oran</span>
+            </div>
+
+            <figure class="chart-figure">
+            <div class="mini-chart-container">
+              <canvas id="chartDonut2025" aria-label="2025 yılı fosil ve yenilenebilir enerji üretim payı halka grafiği" role="img"></canvas>
+            </div>
+            <figcaption class="chart-caption">
+              2025'te seçilmiş beş kaynağın toplamı 333,7 TWh oldu. Fosil kaynaklar (kömür+doğal gaz) 199,8 TWh (%59,9); hidro+rüzgâr+güneş 133,9 TWh (%40,1) üretti. Kaynak: Our World in Data (Ember ve Energy Institute). Bu oranlar toplam üretimi değil, seçilmiş beş kaynağı temel alır.
+            </figcaption>
+            </figure>
+          </article>
+
+        </div>
+
+        <!-- 5. Görselleştirme: Okuyucu Etkileşimli Karşılaştırma Grafiği (Full Control Panel) -->
+        <article class="card-panel comparison-panel">
+          <div class="card-header border-b">
+            <div>
+              <span class="card-tag">GÖRSELLEŞTİRME 05 // OKUYUCU ETKİLEŞİMLİ KARŞILAŞTIRMA</span>
+              <h3 class="card-title">Türkiye’nin üretim serisini ülke ve kaynağa göre karşılaştırın</h3>
+              <p class="card-desc">
+                Aşağıdaki kontrol panelini kullanarak dilediğiniz ülkeyi, enerji kaynağını ve zaman aralığını seçin.
+              </p>
+            </div>
+          </div>
+
+          <!-- Kontrol Paneli (Form Öğeleri & Erişilebilir Kontroller) -->
+          <div class="controls-grid" role="region" aria-label="Grafik Filtreleme Kontrolleri">
+            
+            <!-- Ülke Seçimi -->
+            <div class="control-group">
+              <label for="countrySelect" class="control-label">1. Karşılaştırılacak Ülke:</label>
+              <select id="countrySelect" class="control-select" aria-label="Karşılaştırma için ülke seçin">
+                <option value="Germany" selected>Almanya (DEU)</option>
+                <option value="United States">Amerika Birleşik Devletleri (USA)</option>
+                <option value="China">Çin (CHN)</option>
+                <option value="France">Fransa (FRA)</option>
+                <option value="Spain">İspanya (ESP)</option>
+                <option value="United Kingdom">Birleşik Krallık (GBR)</option>
+                <option value="Poland">Polonya (POL)</option>
+                <option value="Italy">İtalya (ITA)</option>
+                <option value="Greece">Yunanistan (GRC)</option>
+                <option value="Denmark">Danimarka (DNK)</option>
+                <option value="Netherlands">Hollanda (NLD)</option>
+                <option value="Portugal">Portekiz (PRT)</option>
+                <option value="India">Hindistan (IND)</option>
+                <option value="Japan">Japonya (JPN)</option>
+                <option value="Brazil">Brezilya (BRA)</option>
+                <option value="World">Dünya Ortalaması (OWID_WRL)</option>
+              </select>
+            </div>
+
+            <!-- Enerji Kaynağı Filtresi (Buton Grubu) -->
+            <div class="control-group">
+              <label class="control-label">2. İncelenecek Enerji Kaynağı:</label>
+              <div class="source-button-group" role="radiogroup" aria-label="Enerji kaynağı seçimi">
+                <button type="button" class="btn-source is-active" data-source="Renewable" role="radio" aria-checked="true">Hidro + Rüzgâr + Güneş</button>
+                <button type="button" class="btn-source" data-source="Wind" role="radio" aria-checked="false">Rüzgâr</button>
+                <button type="button" class="btn-source" data-source="Solar" role="radio" aria-checked="false">Güneş</button>
+                <button type="button" class="btn-source" data-source="Coal" role="radio" aria-checked="false">Kömür</button>
+                <button type="button" class="btn-source" data-source="Gas" role="radio" aria-checked="false">Doğalgaz</button>
+                <button type="button" class="btn-source" data-source="Hydropower" role="radio" aria-checked="false">Hidroelektrik</button>
+              </div>
+            </div>
+
+            <!-- Zaman Aralığı Kaydırıcıları -->
+            <div class="control-group">
+              <label class="control-label" id="rangeLabel">
+                3. Zaman Aralığı: <span id="yearRangeDisplay" class="font-mono text-cyan">1965 – 2025</span>
+              </label>
+              <div class="range-sliders-wrapper">
+                <div class="range-item">
+                  <span class="range-hint">Başlangıç:</span>
+                  <input type="range" id="startYear" min="1965" max="2024" value="1965" class="slider-input" aria-label="Başlangıç yılı">
+                </div>
+                <div class="range-item">
+                  <span class="range-hint">Bitiş:</span>
+                  <input type="range" id="endYear" min="1966" max="2025" value="2025" class="slider-input" aria-label="Bitiş yılı">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Karşılaştırma Grafiği Canvas -->
+          <figure class="interactive-chart-figure">
+          <div class="interactive-chart-container">
+            <canvas id="chartComparison" aria-label="Türkiye ile seçilen ülkenin elektrik üretimi karşılaştırma çizgi grafiği" role="img"></canvas>
+          </div>
+
+          <figcaption class="chart-caption">
+            Kalın mavi çizgi Türkiye'yi, kesikli turuncu çizgi seçilen ülkeyi gösterir. Birim: TWh. Kaynak: Our World in Data (Ember ve Energy Institute).
+          </figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BÖLÜM 5: SONUÇ (CONCLUSION) - "PEKİ NE OLMUŞ?" ANALİZİ
+         ==================================================================== -->
+    <section id="conclusion" class="content-section" aria-labelledby="conclusion-heading">
+      <div class="container-prose">
+        <div class="section-badge">BÖLÜM 03 // BULGULAR &amp; SONUÇ</div>
+        <h2 id="conclusion-heading" class="section-title">
+          Peki Ne Olmuş? Başarılar, Sınırlılıklar ve Açık Kalan Sorular
+        </h2>
+
+        <p class="prose-p">
+          Veriler, Türkiye'de rüzgâr ve güneş üretiminin arttığını gösteriyor. 2014'te 0,02 TWh olan güneş ve 8,5 TWh olan rüzgâr üretimi 2025'te toplam 76,7 TWh'e ulaştı; bu, hidroelektrik üretiminden (57,3 TWh) yüksekti. Kömür (121,4 TWh) ve doğal gaz (78,4 TWh) değerleri üretimi gösterir, tüketimi değil. 2025'te fosil kaynaklar seçilmiş beş kaynağın %59,9'unu (199,8 TWh) oluşturdu; toplam elektrik üretimindeki payı farklıdır. Bu veri seti talebi veya üretim değişiminin nedenlerini tek başına açıklamaz.
+        </p>
+
+        <p class="prose-p">
+          İkinci kritik sınırlılık ise hidroelektriğin iklim dalgalanmalarına ve yağış rejimine olan duyarlılığıdır. 2020 yılındaki bol yağışlı dönemde 77,9 TWh hidroelektrik üretilirken, 2021 kuraklığında bu rakam 55,5 TWh'e gerilemiş ve açığı kapatmak için doğal gaz üretimi bir yılda 68,1 TWh'den 107,3 TWh'e sıçramıştır. Bu tablo, rüzgâr ve güneş gibi hava koşullarına bağlı kesintili kaynaklar artarken şebeke esnekliği, batarya depolama ve baz yük arz güvenliğinin nasıl yönetileceği sorusunu geleceğe açık bir araştırma konusu olarak bırakmaktadır.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BÖLÜM 6: YÖNTEM VE ŞEFFAFLIK (METHODOLOGY)
+         ==================================================================== -->
+    <section id="methodology" class="content-section border-t" aria-labelledby="methodology-heading">
+      <div class="container-prose">
+        <div class="section-badge">BÖLÜM 04 // ŞEFFAFLIK &amp; REPRODUCIBILITY</div>
+        <h2 id="methodology-heading" class="section-title">
+          Veri Metodolojisi, Temizleme Süreçleri ve Açık Kod
+        </h2>
+
+        <div class="methodology-cards">
+          
+          <div class="method-card">
+            <h4>Veri Kaynağı &amp; Lisans</h4>
+            <p>
+              Bu analizde kullanılan elektrik üretim serileri 
+              <a href="https://ourworldindata.org/grapher/electricity-mix" target="_blank" rel="noopener noreferrer" class="link-cyan">Our World in Data (Ember &amp; Energy Institute)</a> 
+              açık veri tabanından alınmıştır. OWID tarafından üretilen ve paylaşılan türetilmiş veriler CC BY 4.0 koşullarıyla kullanılabilir; ancak seriye katkı veren üçüncü taraf kaynakların lisans ve atıf koşulları farklı olabilir. Ham veri sağlayıcılarının koşulları ayrıca kontrol edilmelidir.
+            </p>
+            <p class="method-sub">Veri Erişim Tarihi: 15 Ekim 2026</p>
+          </div>
+
+          <div class="method-card">
+            <h4>Veri Temizleme &amp; Eksik Değer Metodolojisi</h4>
+            <p>
+              Orijinal seride 1965–1984 arasında rüzgâr ve güneş gibi henüz var olmayan teknolojiler gerçek sıfır (0,0 TWh) olarak ele alınmıştır. Kömür ve doğal gaz ise uluslararası serilerde 1985 öncesinde ayrı raporlanmadığından kaynakta boş bırakılmış (NaN) ve grafikte çizgi başlangıcı 1985 olarak işaretlenmiştir. Oran hesaplamalarında hem <strong>5 Ana Kaynak İçi Pay</strong> hem de <strong>Toplam Elektrik Üretimi Payı</strong> şeffafça tanımlanmıştır.
+            </p>
+          </div>
+
+          <div class="method-card">
+            <h4>Kullanılan Teknolojiler &amp; Açık Kaynak</h4>
+            <p>
+              Veri Analizi: <code>Python 3</code>, <code>Pandas</code>, <code>Jupyter Notebook</code>.<br>
+              Önyüz Mimarisi: <code>HTML5 Semantik</code>, <code>Modern CSS (Flexbox &amp; Grid)</code>, <code>JavaScript (ES6+)</code>.<br>
+              Görselleştirme: <code>Chart.js 4.4</code>, <code>chartjs-plugin-annotation</code>, <code>Scrollama.js</code>.
+            </p>
+            <div class="method-links">
+              <a href="notebooks/analiz.ipynb" download class="btn-method">
+                <span>📓 Analiz Notebook'u (analiz.ipynb)</span>
+              </a>
+              <a href="https://github.com/eyupcatan/turkiye-enerji-donusumu" target="_blank" rel="noopener noreferrer" class="btn-method">
+                <span>💻 GitHub Deposu</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Yapay Zekâ Kullanım Beyanı -->
+          <div class="method-card ai-statement">
+            <h4>Yapay Zekâ Kullanım Beyanı</h4>
+            <p>
+              Bu projede Google Antigravity kod altyapısı, grafik entegrasyonu ve responsive CSS için kullanıldı. ChatGPT/Codex proje yönergesini ve notebook çıktılarındaki metrikleri inceleyerek uyum sorunlarını belirledi; düzeltme önerileri verdi ve bu turda bazı site metinleri ile stiller doğrudan düzenlendi. Öğrenci teslim öncesi bulguları kaynak verilerle doğrulamalı, anlatıyı gözden geçirmeli ve kodu açıklayabilmelidir.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       BÖLÜM 7: YAZAR VE İLETİŞİM (FOOTER)
+       ==================================================================== -->
+  <footer id="author" class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-author-box">
+        <div class="footer-avatar">
+          <span>MEÇ</span>
+        </div>
+        <div>
+          <h3 class="footer-name">Muhammet Eyüp Çatan</h3>
+          <p class="footer-bio">
+            Büyük Veri Analistliği öğrencisi ve yazılım geliştirici adayı. Veri analitiği, SQL veri mimarisi ve modern web teknolojileri üzerine değer üreten projeler geliştirmektedir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Çalışan İletişim & Portfolyo Bağlantıları -->
+      <div class="footer-nav-links">
+        <a href="index.html" class="footer-link highlight">← Portfolyo Ana Sayfası</a>
+        <a href="https://github.com/eyupcatan" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://linkedin.com/in/muhammeteyupcatan" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <a href="mailto:eyupcatan@icloud.com" class="footer-link">eyupcatan@icloud.com</a>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Muhammet Eyüp Çatan • Veri Gazeteciliği &amp; Görselleştirme Projesi</p>
+        <p class="footer-disclaimer">Akademik Değerlendirme İçin Hazırlanmıştır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       SCRIPTLER: JSON VERİSİNİ DİNAMİK OKUYAN VE GRAFİKLERİ YÖNETEN MOTOR
+       ==================================================================== -->
+  <script src="veri-script.js" defer></script>
+</body>
+</html>

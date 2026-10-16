@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tasarım Kararları Notu — Muhammet Eyüp Çatan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.45;
+      font-size: 11pt;
+      padding: 10px;
+    }
+    header {
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16pt;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      color: #64748b;
+      text-align: right;
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11.5pt;
+      color: #0284c7;
+      margin: 12px 0 4px 0;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+    p, li {
+      font-size: 9.5pt;
+      color: #334155;
+    }
+    ul {
+      margin-left: 18px;
+      margin-top: 3px;
+    }
+    li { margin-bottom: 3px; }
+    strong { color: #0f172a; }
+    .color-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Tasarım Kararları Notu (1 Sayfa)</h1>
+      <p style="font-size: 9.5pt; color: #64748b; margin-top: 2px;">Türkiye'nin Elektrik Üretiminde Enerji Dönüşümü (1965 – 2025)</p>
+    </div>
+    <div class="meta">
+      <div><strong>Öğrenci:</strong> Muhammet Eyüp Çatan</div>
+      <div><strong>Bölüm:</strong> Büyük Veri Analistliği</div>
+      <div><strong>Tarih:</strong> Ekim 2026</div>
+    </div>
+  </header>
+
+  <h2>1. Renk Sistemi ve Renk Körü Dostu (Color-Blind Friendly) Palet</h2>
+  <ul>
+    <li><strong>Zemin & Kontrast:</strong> Derin uzay koyu zemin (<code>#07090e</code>) ve panel laciverti (<code>#0b0e17</code>), camgöbeği marka rengiyle (<code>#54D6FF</code>) desteklenmiştir. Tüm metinler WCAG AA (en az 4,5:1) kontrast eşiğini karşılar.</li>
+    <li><strong>Okabe-Ito Renk Paleti:</strong> Renk körlüğü olan kullanıcıların ayırt edebilmesi için bilimsel Okabe-Ito paleti kullanılmıştır:
+      <strong>Kömür</strong> (Arduvaz Gri <code>#79808a</code>), <strong>Doğal Gaz</strong> (Kiremit-Turuncu <code>#d55e00</code>), <strong>Hidroelektrik</strong> (Derin Mavi <code>#0072b2</code>), <strong>Rüzgâr</strong> (Zümrüt Yeşili <code>#009e73</code>), <strong>Güneş</strong> (Altın Sarısı <code>#e69f00</code>).</li>
+  </ul>
+
+  <h2>2. Tipografi Hiyerarşisi</h2>
+  <ul>
+    <li><strong>Başlık ve gövde:</strong> <code>Space Grotesk</code> (Google Fonts), en az 16 px. <strong>Sayılar ve metrikler:</strong> <code>JetBrains Mono</code>. Arayüz iki font ailesiyle sınırlıdır.</li>
+    
+  </ul>
+
+  <h2>3. Grafik Türü Seçimleri ve Gerekçeleri (4 Farklı Grafik Türü)</h2>
+  <ul>
+    <li><strong>1. Çizgi / Alan Grafiği (<code>scrollyChart</code>):</strong> 1965–2025 (61 yıllık) zaman serisinde 5 kaynağın gelişimini, kırılma ve kesişim anlarını gösterir. 6. adımda kümülatif fosil alanını hissettirmek için alan grafiğine (<code>fill: true</code>) dönüşür.</li>
+    <li><strong>2. Sıralanmış Yatay Çubuk Grafik (<code>chartRankedBars</code>):</strong> 2024 yılı itibarıyla seçilen tüm ülkeler (16 ülke) ve Dünya ortalamasının rüzgâr ve güneş elektrik payı sıralamasını verir (5 seçilmiş kaynak paydasında Türkiye %19,4 ile Dünya ortalamasının [%17,6] önündedir); yatay eksen ülke etiketlerinin rahat okunmasını sağlar.</li>
+    <li><strong>3. Yığılmış Çubuk Grafik (<code>chartStackedBars</code>):</strong> 1990, 2000, 2010 ve 2025 yıllarında toplam üretim sepetinin bileşimsel dönüşümünü (Fosil vs. Temiz oranlarını) gösterir.</li>
+    <li><strong>4. Halka / Dilim Grafik (<code>chartDonut2025</code>):</strong> 2025’te seçilmiş beş kaynak içindeki fosil (%59,9) ve hidro+rüzgâr+güneş (%40,1) parça-bütün dengesini en sade ve dramatik biçimde sunar.</li>
+  </ul>
+
+  <h2>4. Düzen, Etkileşim ve Erişilebilirlik</h2>
+  <ul>
+    <li><strong>İki Sütunlu Yapışkan Mimari:</strong> Sol sütunda kullanıcı kaydırdıkça ilerleyen metin kartları (<code>Scrollama.js</code>), sağ sütunda ekrana sabitlenen (<code>position: sticky</code>) dinamik Chart.js canvas. Mobilde 360 px uyumlu dikey akış.</li>
+    <li><strong>Okuyucu Etkileşimi:</strong> Ülke seçici (dropdown), kaynak radyo butonları ve zaman kaydırıcıları ile kullanıcının kendi hipotezini test etmesi sağlanmıştır.</li>
+    <li><strong>Erişilebilirlik:</strong> <code>prefers-reduced-motion</code> desteği, anlamsal HTML5 (<code>figure</code>, <code>figcaption</code>), klavye navigasyonu ve Chart.js Annotation etiketleri.</li>
+  </ul>
+
+</body>
+</html>
