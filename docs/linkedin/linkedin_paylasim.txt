@@ -1,0 +1,19 @@
+Türkiye'de rüzgâr ve güneş enerjisi hızla yükselirken, elektrik üretimini hâlâ kömür ve doğal gaz taşıyor.
+
+Our World in Data (OWID) açık verileriyle 1965–2025 yıllarını kapsayan 61 yıllık seriyi inceleyerek interaktif bir Scrollytelling (kaydırmalı veri hikâyesi) geliştirdim.
+
+Veriden çıkan 5 temel bulgu:
+1. 1985: Seçilmiş beş kaynak içinde kömür %55,4, hidroelektrik %44,4 pay aldı.
+2. 2000 Doğal Gaz Liderliği: Gaz üretimi 46,5 TWh'e çıkarak seçilmiş beş kaynak içinde %40,2 pay aldı ve kömürü (38,2 TWh) geride bıraktı.
+3. 2014 Fosil Zirvesi: Fosil yakıt payı seçilmiş beş kaynak içinde %80,0'a ulaştı (196,8 TWh).
+4. Rüzgâr ve Güneş: Rüzgâr üretimi 2008–2020 arasında 0,85'ten 24,6 TWh'e, güneş üretimi 2014–2025 arasında 0,02'den 37,3 TWh'e çıktı. Veriler büyümeyi gösterir, politika etkisini tek başına ölçmez.
+5. 2025 Büyük Resmi: Rüzgâr ve Güneş toplamı (76,7 TWh) tarihte ilk kez hidroelektriği (57,3 TWh) geride bıraktı. Ancak seçilmiş beş kaynağın %59,9'u (199,8 TWh) fosil yakıtlardan geldi; bu oran toplam elektrik üretiminin payı değil.
+
+Bu dönüşümün önümüzdeki yıllarda nasıl ilerleyeceğini sizce hangi veri daha iyi açıklar?
+
+Projeyi Python/Pandas ile temizleyip Chart.js, Scrollama.js ve responsive mimariyle kodladım.
+
+🔗 İnteraktif Veri Hikâyesini İnceleyin:
+https://eyupcatan.dev/veri-hikayesi.html
+
+#VeriAnalitiği #DataStorytelling #YenilenebilirEnerji #OurWorldInData #Python
