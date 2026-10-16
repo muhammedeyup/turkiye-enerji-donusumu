@@ -8,7 +8,6 @@ Bu proje, Türkiye'nin elektrik üretim karışımının zaman içindeki değiş
 proje-adi/
 ├── README.md
 ├── requirements.txt
-├── teslim.txt
 ├── data/
 │   ├── raw/                 # Kaynak veriler
 │   └── processed/           # Notebook'tan üretilen JSON
